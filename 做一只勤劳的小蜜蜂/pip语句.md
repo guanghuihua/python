@@ -1,4 +1,4 @@
-#关于pip 来安装包的一些常见操作  
+### 关于pip 来安装包的一些常见操作  
 [网址]( https://blog.csdn.net/peiwang245/article/details/98317863)
 1. 查看pip  
 （1）直接在cmd窗口中输入`pip`命令，会显示pip所有的参数使用方法；  
