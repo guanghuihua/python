@@ -23,15 +23,16 @@ pip版本升级命令：`pip install --upgrade pip`
 
 5. pip安装第三方库 
     
-命令：`pip install  库名`  
+命令：`pip install  库名`    
+
 pip安装会拉取最新版本安装，想安装任意版本则可加上版本号  
 命令：`pip install 库名=版本号`  
 
 1. 查看安装  
-   `pip show 库名`  
+`pip show 库名`  
 
 2. 卸载第三方库  
-   `pip uninstall 库名`  
+`pip uninstall 库名`  
 
 3. 卸载Pip  
-    `python -m pip uninstall pip`  
+`python -m pip uninstall pip`  
