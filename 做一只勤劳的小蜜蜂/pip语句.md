@@ -1,5 +1,7 @@
-### 关于pip 来安装包的一些常见操作  
+# 关于pip 来安装包的一些常见操作   
+
 [网址]( https://blog.csdn.net/peiwang245/article/details/98317863)
+
 1. 查看pip  
 （1）直接在cmd窗口中输入`pip`命令，会显示pip所有的参数使用方法；  
 （2）输入pip提示Did not provide a command，则有两种可能，  
@@ -19,16 +21,17 @@ pip版本升级命令：`pip install --upgrade pip`
 
  `pip list --outdated`可以查看有新版本的第三方库，可显示现在安装的版本，以及最新的版本  
 
-5. pip安装第三方库  
+5. pip安装第三方库 
+    
 命令：`pip install  库名`  
 pip安装会拉取最新版本安装，想安装任意版本则可加上版本号  
 命令：`pip install 库名=版本号`  
 
-6. 查看安装  
+1. 查看安装  
    `pip show 库名`  
 
-7. 卸载第三方库  
+2. 卸载第三方库  
    `pip uninstall 库名`  
 
-8. 卸载Pip  
+3. 卸载Pip  
     `python -m pip uninstall pip`  
