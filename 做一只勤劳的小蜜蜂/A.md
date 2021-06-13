@@ -380,6 +380,18 @@ Computer、MobilePhone都是类Product的子类，它们共同继承了Product�
 **在Python语言中，object类是所有类的最终父类，所有类最顶层的根都是object类。
 在程序中创建一个类时，除非明确指定父类，否则默认从Python的根类object继承。**
 
+所以在定义类的时候，下面是等价的，所有自定义的类都是object类的一个实例，
+
+```python
+class Person(object):  # 所有自定义的类其实是来自object类的一个实例
+    pass
+
+calss Person:
+    pass
+
+
+```
+
 类定义本身也是个实例（继承自object的为type实例，裸的为classobj实例），因此一个“静态方法”其实只不过是类定义对象的成员罢了……  
 c++的static方法则是正儿八经的静态方法，因为类定义本身不是个实例。  
 python里，除了极少的几个语句，其余全都是对象实例。一个函数同样是对象实例，因此对python而言其实连方法这一说都不准确…那些个对象方法只不过是指向函数对象的引用，只是属性而已……
