@@ -88,8 +88,14 @@ Headers内容是让对方服务器在接收到请求的时候能够了解我们�
  - 一是`User-Agent`表明我们是什么版本的浏览器，如果没有可能不会得到返回信息
  - `cookie` 如果想要做一些登录以后才能看到一些内容，想把这个内容爬取下来，就必须学会怎么存储`cookie`和怎么读取`cookie`，因为没有cookie就认为你没有登录
  
-
- 
+### 经常用到的库
+```python
+import bs4  # 网页解析，获取数据  Beautiful Soup
+import re   # 正则表达式，进行文字匹配
+import urllib.request,urllib.error  # 制订URL,获取网页数据
+import xlwt #进行excel操作
+import sqlite3  # 进行SQLite数据库操作
+```
 
 
 

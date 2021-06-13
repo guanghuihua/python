@@ -1,5 +1,5 @@
 # 正则表达式(regular expression)
-[关于这个知识点菜鸟教程上介绍的很详细](https://www.runoob.com/python/python-reg-expressions.html)
+[关于这个知识点菜鸟教程上介绍的很详细](https://www.runoob.com/python/python-reg-expressions.html)    
 [还有一个是介绍各种语言的正则表达式的](https://www.runoob.com/regexp/regexp-tutorial.html)
 + 正则表达式是一个特殊的字符序列，利用事先定义好的一些特定字符以及它们的组合组成一个“规则”，检查一个字符串是否与这种规则匹配来实现对字符的进行过滤。  
 + 正则表达式是字符串处理的有力工具，但是并不是Python独有的，其他语言也有。  
