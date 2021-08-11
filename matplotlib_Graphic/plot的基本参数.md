@@ -20,11 +20,18 @@ y1,y2 = np.meshgrid(x,x)  # 相当于 向量的 笛卡尔乘积，非常有用
 
 linewidth  线条宽度
 linestyle  线条的类型
-colot      颜色
+color      颜色
 
 ## 1. Figure对象
 
 在matplotlib中，整个图表为一个figure对象。其实对于每一个弹出的小窗口就是一个Figure对象，那么如何在一个代码中创建多个Figure对象，也就是多个小窗口呢？
+
+下面的这个代码生成一个空白画布
+```python
+import matplotlib.pyplot as plt
+plt.figure()
+plt.show()
+```
 
 ```python
 x = np.linspace(-1,1,50)
@@ -104,6 +111,31 @@ ax.yaxis.set_ticks_position('left')
 #设置左脊梁(y轴)依据的是x轴的0位置
 ax.spines['left'].set_position(('data',0))
 
+```
+
+### 设置次坐标轴
+
+设置的时候需要注意**使用twiny是添加x轴的坐标轴**
+```python
+# 使用twiny是添加x轴的坐标轴
+import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.arange(0,10,0.1)
+y1 = 0.05 * x ** 2
+y2 = -1 * y1
+
+fig,ax1 = plt.subplots()
+
+ax2 = ax1.twinx()
+ax1.plot(x,y1,'g-')
+ax2.plot(x,y2,'b-')
+
+ax1.set_xlabel('X data')
+ax1.set_ylabel('Y1 data',color = 'g')
+ax2.set_ylabel('Y2 data',color = 'b')
+
+plt.show()
 ```
 
 ## 4. 设置图例
