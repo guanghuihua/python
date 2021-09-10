@@ -1,5 +1,7 @@
 # python画图的一些参数
 
+[画图的链接](https://zhuanlan.zhihu.com/p/33270402)
+
 ## 首先是点的问题
 
 不要总是使用list，list不方便进行科学计算，而且运算速度相对于numpy还慢，下面是几个经常用到的numpy中的数据类型
