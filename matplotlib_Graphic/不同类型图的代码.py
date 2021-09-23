@@ -10,6 +10,17 @@ plt.hist(a,bins)
 plt.title()
 plt.show()
 
+# 实例
+import numpy as np
+import matplotlib.pyplot as plt
+X = np.array([])
+for _ in range(10000):
+    x = np.random.normal(0,3)
+    X = np.append(X,x)
+bins=[-3,-2,-1,0,1,2,3]
+plt.hist(X,bins)
+plt.show()
+
 # ---------------------------kde 核密度图---------------------------------------------
 
 # 注意：这里使用pd的画图
