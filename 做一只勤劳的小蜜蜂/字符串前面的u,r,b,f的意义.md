@@ -1,3 +1,4 @@
+```python
 ### 字符串前面加上4个字母u,r,b,f的含义
 # 加u     后面字符串以 Unicode 格式 进行编码，一般用在中文字符串前面，防止因为源码储存格式问题，导致再次使用时出现乱码。
 # 加r     去掉反斜杠的转移机制。
@@ -26,4 +27,7 @@ time.sleep(1)
 name = 'processing'
 # 以 f开头表示在字符串内支持大括号内的python 表达式
 print(f'{name} done in {time.time() - t0:.2f} s') 
+
 # >>> processing done in 1.02 s
+
+```
