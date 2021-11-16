@@ -134,6 +134,13 @@ plt.yticks([])
 plt.show()
 
 
+# ----------------------------------------热图--------------------------------
+
+temp=np.linspace(0,20,500)
+X,Y=np.meshgrid(temp,temp)
+plt.imshow(Y,cmap=plt.cm.rainbow);plt.colorbar()
+
+
 
 # ----------------------------------------3D图--------------------------------
 import numpy as np
