@@ -8,6 +8,11 @@ import pandas as pd
 plt.rcParams['font.sans-serif']=['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
+# 使用ggplot样式
+import matplotlib
+matplotlib.style.use('ggplot')
+%matplotlib inline
+
 # 关于取点，不要还是用list，使用numpy，后面进行向量运算什么的更方便，而且计算也更快
 x = np.linspace(0,1,5)
 x1 = np.matrix([[1,2],[3,4]])
