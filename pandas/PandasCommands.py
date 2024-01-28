@@ -56,8 +56,11 @@ df.corr()  #该函数返回列之间的相关系数
 # pandas 中的选择和过滤
 mySeries['columnName']
 df[n:N]  # 返回第n行到N-1行的数据，类型是DataFrame
+
+# loc应该是locate（定位）的缩写，不同的是loc是使用label（df的index）定位，而iloc是使用坐标定位
 df.iloc[[m],[n]]   #返回第m行第n列的数据
-df.loc[m:n]  #该函数返回索引
+df.loc[m:n]  
+
 df['columnName'] or df.columnName
 df['columnName'][n]
 df['columnName'].nunique()
