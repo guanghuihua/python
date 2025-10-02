@@ -1,0 +1,29 @@
+// 常用字段速览（Python）
+// type: "python"：使用 Python 调试适配器（debugpy）。
+// request: "launch" | "attach"：启动新进程或附加到现有进程。
+// program / module：运行脚本或模块（二者选其一）。
+// args：传递给被调脚本/模块的命令行参数。
+// cwd：工作目录（影响相对路径/导入）。
+// env / envFile：环境变量与 .env 文件。
+// console：integratedTerminal / externalTerminal / internalConsole。
+// justMyCode：过滤第三方库栈帧。
+// stopOnEntry：启动后在第一行暂停。
+// python：指定解释器路径（通常用工作区设置或选择解释器即可，无需在这里硬编码）。
+
+
+{
+    "version": "0.2.0",
+    "configurations":[
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "cwd":"${workspaceFolder}",
+            "console":"integratedTerminal",
+            "justMyCode": false,
+            "env": {},
+            "args": []
+        }
+    ]
+}
