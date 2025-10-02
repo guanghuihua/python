@@ -4,5 +4,3 @@ build/
 *.exe
 CMakeFiles/
 CMakeCache.txt
-
-_pycache_/
