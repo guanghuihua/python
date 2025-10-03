@@ -20,8 +20,10 @@
 - **vim**：左 pane 用来编辑 Python 文件  
 - **python3**：用于执行 / 调试 Python 脚本  
 - **entr**：用于监听文件变动并触发命令  
+- **conda**：可选，但如果要使用虚拟环境功能必须安装并正确初始化
 
-> 提示：在 Ubuntu 上可以用 `sudo apt install tmux vim python3 entr` 安装；在 macOS 上用 `brew install tmux vim entr`。
+> 提示：在 Ubuntu 上可以用 `sudo apt install tmux vim python3 entr` 安装；  
+> Conda 推荐安装 [Miniconda](https://docs.conda.io/en/latest/miniconda.html)。
 
 ---
 
@@ -124,36 +126,18 @@ tmux split-window -h -l 15 -t "$SESSION":0
 
 ### **在左 / 右 Pane 注入命令**
 
-```bash
-tmux send-keys -t "$SESSION":0.0 "vim \"$TARGET\"" C-m
-tmux send-keys -t "$SESSION":0.1 "find . -name '*.py' | entr -cd python3 \"$TARGET\"" C-m
-```
-
-* 左边 pane（`:0.0`）：执行 `vim "<TARGET>"`，进入编辑状态
-* 右边 pane（`:0.1`）：执行命令
-
-  ```
-  find . -name '*.py' | entr -cd python3 "<TARGET>"
-  ```
-
-  这条命令做的事情是：
-
-  1. `find . -name '*.py'`：遍历当前目录及子目录，列出所有 `.py` 文件
-  2. 管道传给 `entr`：`entr` 是一个文件监控工具，监听这些文件的变动
-
-     * `-c`：每次运行前清屏
-     * `-d`：如果被监控的文件列表消失（比如被删除）则退出
-  3. `python3 "<TARGET>"`：一旦任何被监控的 `.py` 文件被保存（修改），就执行这条命令，运行/调试你的目标文件
-
-### **焦点 & attach**
+如果启用了 Conda 环境选择功能，脚本会在两个 pane 内部执行：
 
 ```bash
-tmux select-pane -t "$SESSION":0.0
-tmux attach -t "$SESSION"
+eval "$(conda shell.bash hook)"; conda activate <你选择的环境>; <命令>
 ```
 
-* `select-pane`: 将焦点设置回左边 pane（编辑窗格），这样你进入后马上在 Vim 编辑
-* `attach`: 最终把当前终端挂载到新创建的 tmux session，让你进入这个环境
+例如：
+
+* 左 pane：`conda activate <env>; vim <TARGET>`
+* 右 pane：`conda activate <env>; find . -name '*.py' | entr -cd python <TARGET>`
+
+这样保证了两个 pane 内部运行的 Python 和 Vim 都在你选择的 Conda 环境中。
 
 ---
 
@@ -202,5 +186,42 @@ tmux attach -t "$SESSION"
   ```
 
   然后再运行脚本重新创建。
+
+---
+
+## 七、Conda 环境选择与激活
+
+### 1. 列出 Conda 环境并选择
+
+在脚本启动时，您将看到所有可用的 Conda 环境，脚本会要求您从中选择一个。即使您当前处于 `base` 环境中，脚本也会允许您选择其他任何环境。
+
+```
+可用 Conda 环境：
+  [0] base
+  [1] CTRW
+  [2] deepseek-prover-V2
+  [3] pydev
+  [4] rqalpha
+  [5] torch22-cuda118
+```
+
+您只需要输入环境编号（例如 `3` 选择 `pydev` 环境），脚本会自动切换到该环境。
+
+### 2. 在 tmux 中激活并使用该环境
+
+在选择了 Conda 环境之后，脚本会在每个 `tmux` pane 中执行以下命令来激活环境：
+
+```bash
+eval "$(conda shell.bash hook)"
+conda activate <选择的环境>
+```
+
+然后，左边 pane 用 `vim` 编辑目标文件，右边 pane 用该环境的 `python` 解释器监听文件变动并自动运行。
+
+---
+
+## 八、总结
+
+这个脚本使得在使用 `tmux` 进行 Python 开发时能够自动管理 Conda 环境、编辑文件并实时运行，极大提升了开发效率。通过一键激活所需的 Conda 环境，您可以更加专注于代码的开发和调试。
 
 
