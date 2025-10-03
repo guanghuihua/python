@@ -6,3 +6,6 @@ CMakeFiles/
 CMakeCache.txt
 
 _pycache_/
+*.swp
+*.py.swp
+.decorator.py.swp
