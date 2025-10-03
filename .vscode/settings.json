@@ -11,5 +11,9 @@
   },
   "git.confirmSync": false,
   "git.autofetch": true,
-  "terminal.integrated.inheritEnv": false
+  "terminal.integrated.inheritEnv": false,
+  "chatgpt.openOnStartup": true,
+  "application.experimental.rendererProfiling": true,
+  "chat.agent.enabled": true,
+  "chat.disableAIFeatures": true
 }
